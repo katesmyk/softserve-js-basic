@@ -1,24 +1,27 @@
-// 3.
-// Реалізуйте функцію calcRectangleArea(width, height), 
-// яка приймає 2 параметри ширина прямокутника width і висота прямокутника height і обраховує його площу. 
-// Передбачити припинення виконання програми і генерацію винятку у випадку, якщо функції передано не числові параметри.
-// Напишіть код, який використовує цю функцію та обробляє можливі виняткові ситуації.
+// Задані цілі числа a і b (a < b). 
+// Виведіть усі цілі числа від a до b включно, при цьому a виводится 1 раз,
+//  число а+1 - два рази і т.д.
 
-function calcRectangleArea(width, height) {
-	if(isNaN(width) || isNaN(height)) {
-		console.log('Введіть числові дані');
-	} else if (width <= 0 || height <= 0) {
-		console.log('Введені дані не можуть дорівнювати нулю або бути від\'ємними');
-	} else if(width === height) {
-		console.log('Введені дані не можуть бути рівні');
+let a = 1;
+let b = 12;
+let range = [];
+
+let displayRange = function(a, b) {
+	if( a >= b ) {
+		console.log('A must be less than B or A must not be equal B');
+	} else if( typeof a !== 'number' || typeof b !== 'number' ) {
+		console.log('A and B must be numbers');
 	} else {
-		console.log(width * height);
+		for (let i = a; i <= b; i++) {
+			for (let j = a; j <= i; j++) {
+				range.push(Number(i));
+			}
+		}
+		return range
 	}
 }
 
-let rectacular = calcRectangleArea('12', -1);
-console.log(rectacular);
+let rangeResult = displayRange( a, b );
+console.log(rangeResult);
 
-// Я правильно зрозуміла,що в даному випадку підходить медод isNaN()? 
-// Типу якшо число буде введено як строка, то площа порахується, але якщо там числа не буде, а будуть букви чи символи - то виведу помилку?
 
