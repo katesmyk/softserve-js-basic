@@ -6,7 +6,7 @@
 
 
 
-let arr = [1, 2, 5, 3, '3'];
+let arr = [1, 2, 5, 3];
 
 function findUnique(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -22,4 +22,12 @@ function findUnique(arr) {
 let result = findUnique(arr);
 console.log(result);
 
-// Незнаю як перевірити якщо строка в масиві дорівнює числу в масиві.
+// Незнаю як перевірити якщо строка в масиві дорівнює числу в масиві, тому знайшла отаке рішення, сама мабуть ен зробила б так. ЧИ є іншщий спосіб перевірки?
+
+// function findUnique(arr) {
+//   let data = arr.map(item => String(item)).filter((item, index, array) => array.indexOf(item) !== index);
+//   return data.length === 0;
+// }
+
+// let result = findUnique(arr);
+// console.log(result);
