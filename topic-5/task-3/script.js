@@ -15,6 +15,8 @@ class Person {
   constructor(name, surname) {
     this.name = name;
     this.surname = surname;
+    this.firstCourse = 1;
+    this.lastCourse = 6;
   }
   
   showFullName() {
@@ -35,7 +37,7 @@ class Student extends Person {
   showCourse() {
     const currentYear = new Date().getFullYear();
     const course = currentYear - this.year + 1;
-    if (course < 1 || course > 6) {
+    if (course < this.firstCourse || course > this.lastCourse) {
       return console.log("Invalid course");
     }
   }
