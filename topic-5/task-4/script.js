@@ -15,20 +15,26 @@ class Marker {
     this._inkMinVal = 0.5;
   }
   
-  typeMethod(row) {
-    if (row.trim() !== '') {
-      for (let i = 0; i < row.length; i++) {
-        this.inkPercentage -= this._inkMinVal;
-        if (this.inkPercentage >= this._inkMinVal) {
+  printMethod(row) {
+    // потрібно порахувати кількість символів і чи вистачить чорнила
+    // якщо вистачить, то вивести рядок відповідним кольором
+    // якщо ні, то вивести повідомлення про те, що чорнила не вистачає
+    // якщо чорнила взагалі немає, то вивести повідомлення про те, що маркер треба заправити
+    
+    if( row.trim().length === 0) {
+      console.log('Add some text to print');
+    } else {
+      let rowLenght = row.split('').filter(el => el !== ' ').length;
+      let inkNeed = rowLenght * this._inkMinVal;
+      if (this.inkPercentage >= inkNeed) {
+        this.inkPercentage -= inkNeed;
           console.log(`You can print this %c${row} in ${this.inkColor} color`,  `color: ${this.inkColor}`);
         } else {
-          console.log(`You need to refill the marker`);
-          break;
+          console.log(`You need to refill the marker, because you need ${inkNeed - this.inkPercentage}% more`);
         }
       }
     }
   }
-}
 
 class RefillableMarker extends Marker {
   constructor(inkColor, inkPercentage, _inkMinVal) {
@@ -48,5 +54,5 @@ class RefillableMarker extends Marker {
 
 
 const marker = new RefillableMarker('blue', 12);
-marker.typeMethod('My marker is very cool!');
+marker.printMethod('sakjfkasfjksdjfksdjdfvdfgfgdfgdfhdff');
 marker.refillMarker();
