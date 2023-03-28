@@ -7,34 +7,33 @@
 // В. Реалізувати клас, що описує маркер, що заправляється, успадкувавши його від простого маркера і додавши метод для заправки маркера. 
 // Продемонструвати роботу написаних методів
 
-
 class Marker {
-  constructor( inkColor, inkPercentage) {
+  constructor(inkColor, inkPercentage) {
     this.inkColor = inkColor;
     this.inkPercentage = inkPercentage;
     this._inkMinVal = 0.5;
   }
-  
+
   printMethod(row) {
-    // потрібно порахувати кількість символів і чи вистачить чорнила
-    // якщо вистачить, то вивести рядок відповідним кольором
-    // якщо ні, то вивести повідомлення про те, що чорнила не вистачає
-    // якщо чорнила взагалі немає, то вивести повідомлення про те, що маркер треба заправити
-    
-    if( row.trim().length === 0) {
+    if (row.trim().length === 0) {
       console.log('Add some text to print');
     } else {
-      let rowLenght = row.split('').filter(el => el !== ' ').length;
-      let inkNeed = rowLenght * this._inkMinVal;
+      let rowLength = row.split('').filter(el => el !== ' ').length;
+      let inkNeed = rowLength * this._inkMinVal;
       if (this.inkPercentage >= inkNeed) {
         this.inkPercentage -= inkNeed;
-          console.log(`You can print this %c${row} in ${this.inkColor} color`,  `color: ${this.inkColor}`);
-        } else {
-          console.log(`You need to refill the marker, because you need ${inkNeed - this.inkPercentage}% more`);
-        }
+        console.log(`You can print this %c${row}`, `color: ${this.inkColor}`);
+      } else if (inkNeed > this.inkPercentage && this.inkPercentage >= this._inkMinVal) {
+        let maxChars = Math.floor(this.inkPercentage / this._inkMinVal);
+        let printRow = row.slice(0, maxChars);
+        console.log(`Please refill your marker, you have inks only on this part of your text %c${printRow}`, `color: ${this.inkColor}`);
+        this.inkPercentage = 0;
+      } else {
+        console.log(`Not enough ink in the ${this.inkColor} marker.`);
       }
     }
   }
+}
 
 class RefillableMarker extends Marker {
   constructor(inkColor, inkPercentage, _inkMinVal) {
@@ -54,5 +53,5 @@ class RefillableMarker extends Marker {
 
 
 const marker = new RefillableMarker('blue', 12);
-marker.printMethod('sakjfkasfjksdjfksdjdfvdfgfgdfgdfhdff');
+marker.printMethod('Mark is awesome. He like play football and drink juice, eat banana and candies');
 marker.refillMarker();
