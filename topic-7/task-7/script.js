@@ -40,13 +40,13 @@ country.addEventListener('change', () => {
     variant.textContent = city;
     cities.appendChild(variant);
   });
-  
+
   p.textContent = `${country.options[country.selectedIndex].text} - ${cities.value}`;
 });
 
 
 cities.addEventListener('change', () => {
-  p.textContent = `${country.value} - ${cities.value}`;
+  p.textContent = `${country.options[country.selectedIndex].text} - ${cities.value}`;
 });
 
 
