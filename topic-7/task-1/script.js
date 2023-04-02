@@ -7,12 +7,22 @@
 
 
 const newWin = window.open('', '', 'width=300,height=300');
-setTimeout(() => {
+
+// setTimeout(() => {
+//   newWin.resizeTo(500, 500);
+// }, 2000);
+// setTimeout(() => {
+//   newWin.moveTo(200, 200);
+// }, 2000);
+// setTimeout(() => {
+//   newWin.close();
+// }, 3000);
+
+
+let interactFunc = () => {
   newWin.resizeTo(500, 500);
-}, 2000);
-setTimeout(() => {
   newWin.moveTo(200, 200);
-}, 2000);
-setTimeout(() => {
-  newWin.close();
-}, 3000);
+};
+
+setTimeout(interactFunc, 2000);
+setTimeout(() => { newWin.close();}, 3000);
