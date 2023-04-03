@@ -15,26 +15,55 @@ const btnBrown = document.getElementById('btnBrown');
 const link = document.getElementById('link');
 const container = document.getElementsByClassName('btns-container')[0];
 
+// btnBlue.addEventListener('click', () => {
+//   container.style.backgroundColor = 'blue';
+// });
+
+// btnPink.addEventListener('dblclick', () => {
+//   container.style.backgroundColor = 'pink';
+// });
+
+// btnBrown.addEventListener('mousedown', () => {
+//   container.style.backgroundColor = 'brown';
+// });
+
+// btnBrown.addEventListener('mouseup', () => {
+//   container.style.backgroundColor = 'white';
+// });
+
+// link.addEventListener('mouseover', () => {
+//   container.style.backgroundColor = 'yellow';
+// });
+
+// link.addEventListener('mouseout', () => {
+//   container.style.backgroundColor = 'white';
+// });
+
+
+function changeColor(color) {
+  container.style.backgroundColor = color;
+}
+
 btnBlue.addEventListener('click', () => {
-  container.style.backgroundColor = 'blue';
+  changeColor('blue');
 });
 
 btnPink.addEventListener('dblclick', () => {
-  container.style.backgroundColor = 'pink';
+  changeColor('pink');
 });
 
 btnBrown.addEventListener('mousedown', () => {
-  container.style.backgroundColor = 'brown';
+  changeColor('brown');
 });
 
 btnBrown.addEventListener('mouseup', () => {
-  container.style.backgroundColor = 'white';
+  changeColor('white');
 });
 
 link.addEventListener('mouseover', () => {
-  container.style.backgroundColor = 'yellow';
+  changeColor('yellow');
 });
 
 link.addEventListener('mouseout', () => {
-  container.style.backgroundColor = 'white';
+  changeColor('white');
 });

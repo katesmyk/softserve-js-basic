@@ -6,7 +6,7 @@
 //         4) із затримкою 2 сек закрийте вікно.
 
 
-const newWin = window.open('', '', 'width=300,height=300');
+// const newWin = window.open('', '', 'width=300,height=300');
 
 // setTimeout(() => {
 //   newWin.resizeTo(500, 500);
@@ -19,10 +19,30 @@ const newWin = window.open('', '', 'width=300,height=300');
 // }, 3000);
 
 
-let interactFunc = () => {
-  newWin.resizeTo(500, 500);
-  newWin.moveTo(200, 200);
-};
+// let interactFunc = () => {
+//   newWin.resizeTo(500, 500);
+//   newWin.moveTo(200, 200);
+// };
 
-setTimeout(interactFunc, 2000);
-setTimeout(() => { newWin.close();}, 3000);
+// setTimeout(interactFunc, 2000);
+// setTimeout(() => { newWin.close();}, 3000);
+
+// setTimeout(() => {
+//   newWin.resizeTo(500, 500);
+// }, 2000)
+// setTimeout(() => {
+//   newWin.moveTo(200, 200);
+// }, 2000)
+
+
+let newWindow= window.open("", "", "width=300, height=300");
+
+setTimeout(() => {
+  newWindow.resizeTo(500, 500);
+  setTimeout(() => {
+    newWindow.moveTo(200, 200);
+    setTimeout(() => {
+      newWindow.close();
+    }, 2000);
+  }, 2000);
+}, 2000);
