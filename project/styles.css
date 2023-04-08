@@ -10,18 +10,22 @@ body {
 	padding: 0;
 	height: 100%;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-synthesis: none;
 	font-family: 'Poppins', sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
 }
 strong,
 b {
+	font-weight: 900;
+}
+
+span {
 	font-weight: 700;
 }
 
 .container {
+	display: flex;
+	justify-content: space-between;
 	max-width: 1230px;
 	width: 100%;
 	margin: 0 auto;
@@ -31,52 +35,64 @@ b {
 
 main {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	margin-top: 40px;
 }
 
 .left {
-	width: 100%;
-	max-width: 30%;
-	float: left;
+	width: 25%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 20px;
+	background-color: #f5f5f5;
+	overflow: hidden;
 }
 
 .right {
-	width: 70%;
-	float: right;
+	flex: 0 0 60%;
+	max-width: 60%;
+}
+
+button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 30px;
+	font-size: 14px;
+	font-family: 'Poppins', sans-serif;
 }
 
 .button--blue {
 	background-color: rgb(93, 65, 222, 0.15);
 	color: #5D41DE;
-	border: none;
-	padding: 10px 15px;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 14px;
-	margin-right: 10px;
+	margin-right: 20px;
+	/* width: 75px; */
+}
+
+.button--blue:hover {
+	background-color: rgb(93, 65, 222, 0.5);
 }
 
 .button--red {
 	background-color:rgb(255, 52, 43, 0.15);
 	color: #FF342B;
-	border: none;
-	padding: 10px 15px;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 14px;
+}
+
+.button--red:hover {
+	background-color: rgb(255, 52, 43, 0.5);
 }
 
 .button--default {
 	background-color: rgb(93, 65, 222, 0.15);
 	color: #fff;
-	border: none;
-	padding: 10px 15px;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 14px;
 }
 
+.button--default:hover {
+	background-color: rgb(93, 65, 222, 0.5);
+}
+
+/* Header */
 header {
 	background-color: #fff;
 	background: linear-gradient(90deg, #95B3F3 0%, #7370C7 100%);
@@ -89,12 +105,11 @@ header {
 
 .header__inner {
 	display: flex;
-	justify-content: flex-start;
 	align-items: center;
 }
 
 .header__logo {
-	margin-right: auto;
+	margin-right: 100px;
 }
 
 .header__logo img {
@@ -104,7 +119,7 @@ header {
 .manage__content {
 	display: flex;
 	align-items: center;
-	margin-right: auto;
+	justify-content: space-around;
 }
 
 .manage__buttons {
@@ -121,6 +136,11 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 25px;
+	margin-right: 100px;
 }
 
 .search__input input[type="text"] {
@@ -139,6 +159,31 @@ header {
 
 .search__buttons {
 	display: flex;
+}
+
+/* Manage left*/
+.left h1 {
+	font-size: 32px;
+	margin-bottom: 20px;
+}
+
+.sort__content {
+	margin-bottom: 20px;
+}
+
+.count-total__content {
+	margin-bottom: 20px;
+}
+
+.count-total__buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.count-total__button {
+	margin-right: 10px;
 }
 
 /* Toggler styles */
@@ -161,6 +206,7 @@ header {
 	border-radius: 15px;
 	background-color: rgb(93, 65, 222, 0.15);
 	cursor: pointer;
+	vertical-align: middle;
 }
 
 .toggle__label:before {
@@ -178,26 +224,34 @@ header {
 .toggle__input:checked+.toggle__label:before {
 	transform: translateX(25px);
 }
-
+.toggle__input:checked+.toggle__label {
+	background-color: rgb(93, 65, 222, 0.5);
+}
 
 /* Products styles */
 .products__content {
 	display: flex;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	height: 100%;
+	gap: 15px;
 }
 
 .products__item {
-	flex: 0 0 auto;
-	margin-right: 20px;
-	
-}
-.products__item-inner {
-	display: flex;
+	position: relative;
+	flex: 0 0 calc(20% - 15px);
 	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	width: 300px;
-	height: 400px;
+	margin-right: 20px;
+}
+.products__item-img img {
+	width: 100px;
+	height: 100px;
+}
+
+.products__item-inner {
+	text-align: center;
+	width: 200px;
+	height: 270px;
 	background-color: #fff;
 	border-radius: 31.8566px;
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
@@ -212,11 +266,21 @@ header {
 	background-repeat: no-repeat;
 	background-size: 200% 200%;
 	color:#fff;
+	transition: all 1.5s ease-in-out;
+	opacity: 0.9;
+	cursor: pointer;
 }
 
 .products__item-buttons {
-	display: flex;
-	justify-content: space-between;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin-bottom: 30px;
+}
+
+.products__item-info p {
+	font-size: 12px;
+	color:#fff;
 }
 
 
