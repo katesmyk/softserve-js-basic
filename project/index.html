@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+	<title>Space shop</title>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="header__inner">
+				<div class="header__logo">
+					<img src="static/img/logo.svg" alt="logo">
+				</div>
+				<div class="manage__content">
+					<div class="manage__buttons">
+						<button class="manage__button button--default">My products</button>
+						<button class="manage__button button--default">Add product</button>
+					</div>
+				</div>
+				<div class="search__content">
+					<div class="search__input">
+						<input type="text" placeholder="...Type something">
+					</div>
+					<div class="search__buttons">
+						<button class="search__button button--blue">Search</button>
+						<button class="search__button button--red">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section class="left">
+			<div class="container">
+				<h1>Manage my products</h1>
+				<div class="sort__content">
+					<div class="toggler">
+						<input type="checkbox" id="toggle" class="toggle__input">
+						<label for="toggle" class="toggle__label">Sort by something</label>
+					</div>
+
+				</div>
+				<div class="count-total__content">
+					<h2>Count</h2>
+					<div class="count-total__buttons">
+						<button class="count-total__button count-total button--blue">Count</button>
+						<p>Total: <span class="count-total__total">0</span></p>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		<section class="right">
+			<div class="container">
+				<div class="products__content">
+					<div class="products__item">
+						<div class="products__item-inner">
+							<div class="products__item-img">
+								<img src="static/img/Earth.svg" alt="earth" height="150px" width="150px">
+							</div>
+							<div class="products__item-info">
+								<h2>Earth</h2>
+								<p>Our home planet is the third planet from the Sun, and the only place we know things.</p>
+								<p>Product price</p>
+							</div>
+							<div class="products__item-buttons">
+								<button class="products__item button--blue">Edit</button>
+								<button class="products__item button--red">Delete</button>
+							</div>
+						</div>
+					</div>
+					<div class="products__item">
+						<div class="products__item-inner">
+							<div class="products__item-img">
+								<img src="static/img/Mars.svg" alt="mars" height="150px" width="150px">
+							</div>
+							<div class="products__item-info">
+								<h2>Product name</h2>
+								<p>Product description</p>
+								<p>Product price</p>
+							</div>
+							<div class="products__item-buttons">
+								<button class="products__item button--blue">Edit</button>
+								<button class="products__item button--red">Delete</button>
+							</div>
+						</div>
+					</div>
+					<div class="products__item">
+						<div class="products__item-inner">
+							<div class="products__item-img">
+								<img src="static/img/Venus.svg" alt="venus" height="150px" width="150px">
+							</div>
+							<div class="products__item-info">
+								<h2>Product name</h2>
+								<p>Product description</p>
+								<p>Product price</p>
+							</div>
+							<div class="products__item-buttons">
+								<button class="products__item button--blue">Edit</button>
+								<button class="products__item button--red">Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+<script src="script.js"></script>
+</html>
