@@ -6,7 +6,7 @@ let checkbox = $('input[type="checkbox"]');
 let count = 0;
 checkbox.on('click', function(){
 	count++;
-	if(count === 3){
+	if(count >= 3){
 		checkbox.attr('disabled', 'disabled');
 	}
 });

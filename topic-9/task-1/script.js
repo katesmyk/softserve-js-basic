@@ -18,8 +18,7 @@
 
 let h2 = $('h2.head');
 h2.css('background-color', 'green');
+h2.find('span.inner').css('font-size', '35px');
 
-let inner = $('h2.head span.inner');
-inner.css('font-size', '35px');
 
 

@@ -7,6 +7,10 @@
 
 let h3 = $('h3');
 let div = $('div');
-for(let i = 0; i < h3.length; i++){
+// for(let i = 0; i < h3.length; i++){
+// 	h3.eq(i).before(div.eq(i));
+// }
+
+for(let i in h3){
 	h3.eq(i).before(div.eq(i));
 }
